@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>최고의 일정 관리</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="title">To-Do List</h1>
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle">🌙</button>
+        <button class="settings" id="settings-toggle">⚙️</button>
+        <button class="language-toggle" id="language-toggle">🌐</button> <!-- 언어 전환 버튼 -->
+      </div>
+    </header>
+
+    <div class="controls">
+      <input type="text" id="task-input" placeholder="새로운 할 일 추가...">
+      <button id="add-task">추가</button>
+    </div>
+
+    <div id="filters" class="filters">
+      <button id="all-filter">모두</button>
+      <button id="active-filter">진행중</button>
+      <button id="completed-filter">완료</button>
+    </div>
+
+    <ul id="task-list" class="task-list"></ul>
+
+    <div class="footer">
+      <span>By iamleeyj</span>
+    </div>
+  </div>
+
+  <!-- 설정 모달 -->
+  <div id="settings-modal" class="settings-modal">
+    <div class="settings-content">
+      <h2>설정 (Setting)</h2>
+
+      <div class="setting">
+        <label for="font-style">폰트 스타일 (Font Style)</label>
+        <select id="font-style">
+          <option value="Arial">Arial</option>
+          <option value="Gulim">굴림</option>
+          <option value="Batang">바탕</option>
+        </select>
+      </div>
+
+      <button id="save-settings">적용</button>
+      <button id="close-settings">닫기</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
