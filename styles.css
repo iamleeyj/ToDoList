@@ -187,23 +187,3 @@ button#close-settings {
   background-color: #ccc;
   margin-left: 10px;
 }
-
-/* 이미 적용된 메시지 스타일 */
-.font-message {
-  color: #4CAF50;
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold; /* 글자 두껍게 */
-  background-color: #e8f5e9; /* 연한 초록색 배경 */
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #4CAF50; /* 테두리 */
-  text-align: center; /* 중앙 정렬 */
-  transition: opacity 0.3s ease;
-  opacity: 0; /* 처음엔 보이지 않도록 설정 */
-}
-
-/* 메시지가 보이도록 하는 스타일 */
-.font-message.show {
-  opacity: 1; /* 메시지가 보이게 설정 */
-}
