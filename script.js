@@ -193,24 +193,24 @@ document.addEventListener("DOMContentLoaded", function () {
   welcomeModal.id = "welcome-modal";
   welcomeModal.innerHTML = `
       <div class="modal-content">
-          <h2>환영합니다!</h2>
+          <h2>Welcome!</h2>
           <p>자동 저장되므로 안심하고 사용하세요.</p>
-          <button id="start-guide">가이드 시작</button>
-          <button id="skip-guide">건너뛰기</button>
+          <button id="start-guide">가이드 시작<br>(Start Guide)</button>
+          <button id="skip-guide">건너뛰기<br>(Skip)</button>
       </div>
   `;
   document.body.appendChild(welcomeModal);
 
   const steps = [
-      { element: "#task-input", text: "여기에 새로운 일정을 입력할 수 있습니다." },
-      { element: "#add-task", text: "이 버튼을 눌러 일정을 추가하세요." },
-      { element: "#task-list", text: "여기에 일정 목록이 표시됩니다." },
-      { element: "#all-filter", text: "모든 일정을 확인할 수 있습니다." },
-      { element: "#active-filter", text: "진행 중인 일정만 볼 수 있습니다." },
-      { element: "#completed-filter", text: "완료된 일정만 볼 수 있습니다." },
-      { element: "#theme-toggle", text: "테마를 변경할 수 있습니다." },
-      { element: "#settings-toggle", text: "설정을 변경할 수 있습니다." },
-      { element: "#language-toggle", text: "한/영 언어를 변경할 수 있습니다." }
+      { element: "#task-input", text: "여기에 일정을 입력해보세요.<br>(Enter your task here.)" },
+      { element: "#add-task", text: "추가 버튼을 눌러 일정을 추가하세요.<br>(Click this button to add a task.)" },
+      { element: "#task-list", text: "여기에 일정 목록이 표시됩니다.<br>(Your task list will be displayed here.)" },
+      { element: "#all-filter", text: "모든 일정을 확인할 수 있습니다.<br>(View all tasks.)" },
+      { element: "#active-filter", text: "진행 중인 일정만 볼 수 있습니다.<br>(View only active tasks.)" },
+      { element: "#completed-filter", text: "완료된 일정만 볼 수 있습니다.<br>(View only completed tasks.)" },
+      { element: "#theme-toggle", text: "다크모드로 변경할 수 있습니다.<br>(Switch to dark mode.)" },
+      { element: "#settings-toggle", text: "폰트를 변경할 수 있습니다.<br>(Change the font settings.)" },
+      { element: "#language-toggle", text: "한/영 언어를 변경할 수 있습니다.<br>(Switch between Korean and English.)" }
   ];
 
   let currentStep = 0;
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
         welcomeModal.innerHTML = `
             <div class="modal-content">
                 <p>${step.text}</p>
-                <button id="next-step">확인</button>
+                <button id="next-step">OK</button>
             </div>
         `;
 
