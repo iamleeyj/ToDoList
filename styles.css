@@ -1,4 +1,4 @@
-/* 기본 스타일 */
+/* 기본 */
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ body {
   position: relative;
 }
 
-/* 할 일 목록 스타일 */
+/* 할 일 목록 */
 header {
   display: flex;
   justify-content: space-between;
@@ -141,7 +141,7 @@ body.dark-mode .task.completed {
   color: #888;
 }
 
-/* 설정 모달 */
+/* 설정 */
 .settings-modal {
   position: fixed;
   top: 0;
@@ -200,14 +200,14 @@ button#close-settings {
 
 #welcome-modal {
   position: fixed;
-  top: 3%; /* 더 위쪽으로 조정 */
+  top: 3%;
   left: 50%;
   transform: translateX(-50%);
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* 최상위 레이어 */
+  z-index: 1000;
   text-align: center;
   width: 90%;
   max-width: 400px;
