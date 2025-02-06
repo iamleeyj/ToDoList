@@ -164,6 +164,8 @@ function saveSettings() {
   localStorage.setItem("font-style", fontStyle);  // 폰트 스타일을 로컬 스토리지에 저장
   document.body.style.fontFamily = fontStyle;  // 즉시 페이지에 폰트 스타일 적용
 }
+
+// 페이지 로드 시 할 일 목록 업데이트
 window.onload = function() {
   // 저장된 폰트 스타일이 있으면 적용
   const savedFontStyle = localStorage.getItem("font-style");
@@ -173,7 +175,21 @@ window.onload = function() {
   }
 
   // 언어 설정
-  changeLanguage();
+  changeLanguage(); 
+
+  // 예시 일정 추가 (체크된 상태로 추가)
+  if (tasks.length === 0) {
+    const initialTask = {
+      id: Date.now(), 
+      text: "예시 일정", 
+      completed: true // 체크된 상태
+    };
+    tasks.push(initialTask);
+    saveTasks();  // 로컬 스토리지에 저장
+  }
+
+  // 페이지 로드 시 할 일 목록 업데이트
+  updateTaskList();
 };
 
 // 페이지 로드 시 할 일 목록 업데이트
