@@ -187,3 +187,28 @@ button#close-settings {
   background-color: #ccc;
   margin-left: 10px;
 }
+
+.highlight-box {
+  position: absolute;
+  border: 3px solid red;
+  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1000;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#welcome-modal {
+  position: fixed;
+  top: 3%; /* 더 위쪽으로 조정 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* 최상위 레이어 */
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}

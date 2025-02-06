@@ -182,3 +182,86 @@ saveSettingsButton.addEventListener("click", saveSettings);  // 저장 버튼 �
 
 // 언어 전환 버튼 클릭 이벤트
 languageToggle.addEventListener("click", changeLanguage);
+
+// 할 일 목록을 로컬 스토리지에 저장하는 함수
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const welcomeModal = document.createElement("div");
+  welcomeModal.id = "welcome-modal";
+  welcomeModal.innerHTML = `
+      <div class="modal-content">
+          <h2>환영합니다!</h2>
+          <p>자동 저장되므로 안심하고 사용하세요.</p>
+          <button id="start-guide">가이드 시작</button>
+          <button id="skip-guide">건너뛰기</button>
+      </div>
+  `;
+  document.body.appendChild(welcomeModal);
+
+  const steps = [
+      { element: "#task-input", text: "여기에 새로운 일정을 입력할 수 있습니다." },
+      { element: "#add-task", text: "이 버튼을 눌러 일정을 추가하세요." },
+      { element: "#task-list", text: "여기에 일정 목록이 표시됩니다." },
+      { element: "#all-filter", text: "모든 일정을 확인할 수 있습니다." },
+      { element: "#active-filter", text: "진행 중인 일정만 볼 수 있습니다." },
+      { element: "#completed-filter", text: "완료된 일정만 볼 수 있습니다." },
+      { element: "#theme-toggle", text: "테마를 변경할 수 있습니다." },
+      { element: "#settings-toggle", text: "설정을 변경할 수 있습니다." },
+      { element: "#language-toggle", text: "한/영 언어를 변경할 수 있습니다." }
+  ];
+
+  let currentStep = 0;
+
+  function showStep(index) {
+    if (index >= steps.length) {
+        welcomeModal.remove();
+        return;
+    }
+
+    const step = steps[index];
+    const targetElement = document.querySelector(step.element);
+
+    if (targetElement) {
+        // 기존 하이라이트 제거
+        document.querySelectorAll(".highlight-box").forEach(el => el.remove());
+
+        const rect = targetElement.getBoundingClientRect();
+        const highlightBox = document.createElement("div");
+        highlightBox.classList.add("highlight-box");
+
+        // 화면에서 정확한 위치 계산
+        highlightBox.style.top = `${window.scrollY + rect.top - 5}px`;
+        highlightBox.style.left = `${window.scrollX + rect.left - 5}px`;
+        highlightBox.style.width = `${rect.width + 10}px`;
+        highlightBox.style.height = `${rect.height + 10}px`;
+
+        document.body.appendChild(highlightBox);
+
+        welcomeModal.innerHTML = `
+            <div class="modal-content">
+                <p>${step.text}</p>
+                <button id="next-step">확인</button>
+            </div>
+        `;
+
+        document.getElementById("next-step").addEventListener("click", function () {
+            highlightBox.remove();
+            currentStep++;
+            showStep(currentStep);
+        });
+    }
+}
+
+  document.getElementById("start-guide").addEventListener("click", function () {
+      showStep(0);
+  });
+
+  document.getElementById("skip-guide").addEventListener("click", function () {
+      welcomeModal.remove();
+  });
+
+  
+});
